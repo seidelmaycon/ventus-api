@@ -10,19 +10,20 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :ventus, VentusWeb.Endpoint,
-  http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [scheme: "https", host: "ventus-api.herokuapp.com", port: 443],
+  http: [port: {:system, "PORT"}], # Possibly not needed, but doesn't hurt
+  url: [host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 80],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json",
   secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
-  http: [port: System.get_env("PORT")]
+  http: [port: System.get_env("PORT")],
+  server: true
 
 # Do not print debug messages in production
 config :logger, level: :info
 
 config :ventus, Ventus.Repo,
   url: System.get_env("DATABASE_URL"),
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  pool_size: 2,
   ssl: true
 
 # ## SSL Support
