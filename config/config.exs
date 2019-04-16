@@ -17,6 +17,12 @@ config :ventus, VentusWeb.Endpoint,
   render_errors: [view: VentusWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: Ventus.PubSub, adapter: Phoenix.PubSub.PG2]
 
+
+config :rollbax,
+  access_token: "0e1a2e20b9904097825b5c4c2478e989",
+  environment: "production",
+  enable_crash_reports: true
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

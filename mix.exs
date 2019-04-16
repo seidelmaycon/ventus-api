@@ -20,7 +20,7 @@ defmodule Ventus.MixProject do
   def application do
     [
       mod: {Ventus.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :rollbax]
     ]
   end
 
@@ -41,7 +41,8 @@ defmodule Ventus.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:bcrypt_elixir, "~> 1.0"}
+      {:bcrypt_elixir, "~> 1.0"},
+      {:rollbax, ">= 0.0.0"}
     ]
   end
 
